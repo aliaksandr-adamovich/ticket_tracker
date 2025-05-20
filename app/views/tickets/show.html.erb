@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">🎫 <%= @ticket.title %></h5>
+    <span class="badge bg-<%= bootstrap_status_class(@ticket.status.humanize) %> text-uppercase">
+      <%= @ticket.status.humanize %>
+    </span>
+  </div>
+
+  <div class="card-body">
+    <p class="text-muted"><strong>Priority:</strong>
+      <span class="badge bg-secondary"><%= @ticket.priority.humanize %></span>
+    </p>
+
+    <p><strong>Description:</strong></p>
+    <p><%= simple_format(@ticket.description) %></p>
+  </div>
+
+  <div class="card-footer d-flex justify-content-between">
+    <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-outline-primary btn-sm" %>
+    <%= link_to 'Back', tickets_path, class: "btn btn-outline-secondary btn-sm" %>
+  </div>
+</div>

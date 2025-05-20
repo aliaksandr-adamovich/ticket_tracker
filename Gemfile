@@ -53,3 +53,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'devise'
+gem 'sassc-rails'
+gem 'simple_form'
+gem 'bootstrap', '~> 5.3'
+
+gem "jsbundling-rails", "~> 1.3"

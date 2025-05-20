@@ -1,0 +1,12 @@
+<%= simple_form_for @ticket do |f| %>
+  <div class="mb-3">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :status, collection: ['open', 'in progress', 'closed'], prompt: 'Select status' %>
+    <%= f.input :priority, collection: ['low', 'medium', 'high'], prompt: 'Select priority' %>
+  </div>
+
+  <div class="mt-3">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

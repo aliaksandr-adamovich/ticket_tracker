@@ -1,0 +1,37 @@
+<h1>Tickets</h1>
+
+<%= link_to 'New Ticket', new_ticket_path, class: "btn btn-success mb-3" %>
+
+<table class="table table-bordered table-hover">
+  <thead class="table-light">
+  <tr>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.title %></td>
+      <td>
+  <span class="badge bg-<%= bootstrap_status_class(ticket.status) %> text-uppercase">
+    <%= ticket.status.humanize %>
+  </span>
+      </td>
+      <td>
+  <span class="badge bg-secondary text-capitalize">
+    <%= ticket.priority %>
+  </span>
+      </td>
+      <td>
+        <%= link_to 'Show', ticket, class: "btn btn-sm btn-outline-primary" %>
+        <%= link_to 'Edit', edit_ticket_path(ticket), class: "btn btn-sm btn-outline-secondary" %>
+        <%= link_to 'Delete', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
